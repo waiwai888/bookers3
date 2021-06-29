@@ -1,12 +1,22 @@
-<%= render 'users/list', user: current_user, book: @newbook %>
-<h1>Book detail</h1>
-<div class="row">
-  <%= link_to user_path(@user.id) do %>
-    <%= attachment_image_tag @user, :user_image, :fill, 60, 60, fallback: "noimage.png" %>
-  <% end %>
-  <%= link_to @user.name, user_path(@user.id) %>
-  <%= link_to @book.title, book_path(@book.id) %>
-  <%= @book.body %>
-  <%= link_to "Edit", edit_book_path(@book.id) %>
-  <%= link_to "Destroy", book_path(@book.id), method: :delete %>
-</div>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'users/list', user: current_user, book: @newbook %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h1>Book detail</h1>
+      <table class="table">
+        <tr>
+          <th>
+            <%= link_to user_path(@user.id) do %>
+              <%= attachment_image_tag @user, :user_image, :fill, 60, 60, fallback: "noimage.png", size:'100x100' %>
+            <% end %>
+          </th>
+          <th><%= link_to @user.name, user_path(@user.id) %></th>
+          <th><%= link_to @book.title, book_path(@book.id) %></th>
+          <th><%= @book.body %></th>
+          <th><%= link_to "Edit", edit_book_path(@book.id) %></th>
+          <th><%= link_to "Destroy", book_path(@book.id), method: :delete %></th>
+        </tr>
+      </table>
+      </div>
