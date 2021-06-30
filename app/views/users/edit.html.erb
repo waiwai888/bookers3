@@ -1,12 +1,12 @@
 <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this book from being saved:</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this book from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 <h1>User info</h1>
 <div class"container">
@@ -17,7 +17,6 @@
         <%= f.text_field:name, autofocus:true, id:"inputName", placeholder:"名前" %>
       </div>
       <div class="form_group">
-        <%= attachment_image_tag @user, :user_image, :fill, 60, 60, fallback: "noimage.png" %>
         <label for="inputImage">Image</label>
         <%= f.attachment_field:user_image, placeholder: "プロフィール画像" %>
       </div>
@@ -25,7 +24,7 @@
         <%= f.text_field:introduction, autofocus:true, id:"inputIntroduction", placeholder:"説明文" %>
       </div>
       <div class="form_group">
-        <%= f.submit"Update User" %>
+        <%= f.submit"Update User", class: "btn btn-secondary" %>
       </div>
     <% end %>
   </div>

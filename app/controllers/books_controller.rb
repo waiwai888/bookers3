@@ -11,8 +11,8 @@ class BooksController < ApplicationController
       flash[:notice] = "successfully"
       redirect_to book_path(@book.id)
     else
+      @book = Book.new
       @books = Book.all
-      flash[:notice] = "error"
       render :index
     end
   end
@@ -39,8 +39,6 @@ class BooksController < ApplicationController
       flash[:notice] = "successfully"
       redirect_to book_path(@book)
     else
-      @book = Book.find(params[:id])
-      flash[:notice] = "error"
       render :edit
     end
   end
